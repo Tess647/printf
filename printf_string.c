@@ -8,20 +8,20 @@
 int printf_string(va_list list_args)
 {
 	char *str;
-	int i, length;
+	int length;
 
 	str = va_arg(list_args, char *);
 	if (str == NULL)
 	{
-		s = "(null)";
-		len = strlen(str);
-		write(1, str, len);
-		return (len);
+		str = "(null)";
+		length = strlen(str);
+		write(1, str, length);
+		return (length);
 	}
 	else
 	{
-		len = strlen(str);
-		write(1, str, len);
-		return (len);
+		length = strlen(str);
+		write(1, str, length);
+		return (length);
 	}
 }

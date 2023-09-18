@@ -24,9 +24,9 @@ Here:
 		j = 2;
 		while (j >= 0)
 		{
-			if (m[j].spec[0] == format[i] && m[j].spec[1] == format[i + 1])
+			if (mb[j].spec[0] == format[i] && mb[j].spec[1] == format[i + 1])
 			{
-				totalChar += m[j].func(list_args);
+				totalChar += mb[j].func(list_args);
 				i = i + 2;
 				goto Here;
 			}
