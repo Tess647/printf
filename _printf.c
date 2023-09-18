@@ -8,48 +8,31 @@
   */
 int _printf(const char *format, ...)
 {
-	int totalChar = 0, i = 0, len;
-	char c, *s;
+	match_block mb[] = {
+		{"%s", printf_string}, {"%c", printf_char}, {"%%", printf_percent}
+	};
+
 	va_list list_args;
+	int i = 0, j, totalChar = 0;
 
 	va_start(list_args, format);
-
-	if (format == NULL)
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
-	while (format[i])
+	while (format[i] != '\0')
 	{
-		if (format[i] == '%')
+		j = 2;
+		while (j >= 0)
 		{
-			i++;
-			switch (format[i])
+			if (m[j].spec[0] == format[i] && m[j].spec[1] == format[i + 1])
 			{
-			case 'c':
-				c = va_arg(list_args, int);
-				_putchar(c);
-				totalChar++;
-				break;
-			case 's':
-				s = va_arg(list_args, char*);
-				len = strlen(s);
-				write(1, s, len);
-				totalChar += len;
-				break;
-			case '%':
-				_putchar('%');
-				totalChar++;
-				break;
-			default:
-				_putchar(format[i]);
-				totalChar++;
-				break;
+				totalChar += m[j].func(list_args);
+				i = i + 2;
 			}
+			j--;
 		}
-		else
-		{
-			_putchar(format[i]);
-			totalChar++;
-		}
+		_putchar(format[i]);
+		totalChar++;
 		i++;
 	}
 
