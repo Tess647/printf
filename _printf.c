@@ -25,12 +25,12 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 			case 'c':
-				c = va_args(list_args, int);
+				c = va_arg(list_args, int);
 				_putchar(c);
 				totalChar++;
 				break;
 			case 's':
-				s = a_args(list_args, char*);
+				s = va_arg(list_args, char*);
 				len = strlen(s);
 				write(1, s, len);
 				totalChar += len;
