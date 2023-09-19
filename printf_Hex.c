@@ -28,9 +28,8 @@ int printf_Hex(va_list list_args)
 	for (i = count - 1; i >= 0; i--)
 	{
 		if (hexArr[i] > 9)
-			hexArr[i] = (hexArr[i] + 7);
-		else
-			_putchar(hexArr[i] + '0');
+			hexArr[i] = hexArr[i] + 39;
+		_putchar(hexArr[i] + '0');
 	}
 
 	free(hexArr);
