@@ -18,7 +18,7 @@ typedef struct form
 	int (*func)();
 } match_block;
 
-int printf_bin(va_list ch_args);
+int printf_bin(va_list list_args);
 int printf_percent(void);
 int printf_char(va_list list_args);
 int printf_string(va_list list_args);
