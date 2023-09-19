@@ -13,7 +13,6 @@ int _printf(const char *format, ...)
 		{"%c", printf_char},
 		{"%%", printf_percent},
 		{"%d", printf_signedint},
-		{"%i", printf_signedint_i},
 		{"%u", printf_unsignedint},
 		{"%b", printf_bin},
 		{"%o", printf_octal},
@@ -30,7 +29,7 @@ int _printf(const char *format, ...)
 Here:
 	while (format[i] != '\0')
 	{
-		j = 9;
+		j = 8;
 		while (j >= 0)
 		{
 			if (mb[j].spec[0] == format[i] && mb[j].spec[1] == format[i + 1])

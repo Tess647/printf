@@ -26,7 +26,6 @@ int printf_bin(va_list list_args);
 int printf_percent(void);
 int printf_char(va_list list_args);
 int printf_string(va_list list_args);
-int printf_signedint_i(va_list list_args);
 int printf_signedint(va_list list_args);
 int printf_unsignedint(va_list list_args);
 int _putchar(char c);
