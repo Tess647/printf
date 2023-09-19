@@ -6,7 +6,7 @@
   *@list_args: input argument
   *Return: number of printed digits
   */
-int printf_unsignedint(va_list list_args);
+int printf_unsignedint(va_list list_args)
 {
 	unsigned int num = va_arg(list_args, unsigned int);
 	int temp = num, i;
