@@ -41,3 +41,43 @@ int printf_signedint(va_list list_args)
 	free(str);
 	return (charcount);
 }
+
+/**
+  * printf_signedint_i - prints a signed int specifier %i
+  * @list_args: input argument
+  * Return: count
+  */
+int printf_signedint_i(va_list list_args)
+{
+	signed int num = va_arg(list_args, signed int);
+	int temp = num, i;
+	int numofdigits = 1;
+	int charcount = 0;
+	char *str, m = '-';
+
+	while (temp /= 10)
+		numofdigits++;
+
+	str = malloc(numofdigits + 1);
+
+	if (!str)
+		return (-1);
+
+	str[numofdigits] = '\0';
+	if (num < 0)
+	{
+		write(1, &m, 1);
+		num = -num;
+		charcount++;
+	}
+
+	for (i = numofdigits; i >= 0; i--)
+	{
+		str[i] = '0' + (num % 10);
+		num /= 10;
+	}
+	charcount += numofdigits;
+	write(1, str, numofdigits);
+	free(str);
+	return (charcount);
+}
