@@ -18,25 +18,25 @@ int printf_signedint(va_list list_args)
 	while (temp /= 10)
 		numofdigits++;
 
-	str = malloc(numofdigits + 1);
+	str = malloc(numofdigits + 2);
 
 	if (!str)
 		return (-1);
 
-	str[numofdigits] = '\0';
+	str[numofdigits + 1] = '\0';
 	if (num < 0)
 	{
 		str[0] = '-';
 		num = -num;
 	}
 
-	for (i = numofdigits - 1; i >= 0; i--)
+	for (i = numofdigits; i >= 0; i--)
 	{
 		str[i] = '0' + (num % 10);
 		num /= 10;
 	}
-	charcount = numofdigits;
-	write(1, str, numofdigits);
+	charcount = numofdigits + 1;
+	write(1, str, numofdigits + 1);
 	free(str);
 	return (charcount);
 }
