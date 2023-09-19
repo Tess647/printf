@@ -16,10 +16,10 @@ int printf_unsignedint(va_list list_args)
 
 	while (temp /= 10)
 		numofdigits++;
-	
+
 	str = malloc(numofdigits + 1);
 	if (!str)
-		return -1;
+		return (-1);
 
 	str[numofdigits] = '\0';
 	for (i = numofdigits - 1; i >= 0; i--)

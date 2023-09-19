@@ -37,5 +37,5 @@ int printf_signedint(va_list list_args)
 	charcount = numofdigits;
 	write(1, str, numofdigits);
 	free(str);
-	return charcount;
+	return (charcount);
 }
