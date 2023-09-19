@@ -8,7 +8,7 @@
 int printf_Hex(va_list list_args)
 {
 	int count = 0, i, *hexArr;
-	unsigned int num = va_arg(va_list list_args);
+	unsigned int num = va_arg(list_args, unsigned int);
 	unsigned int t_num = num;
 
 	while (num / 16 != 0)
@@ -25,10 +25,10 @@ int printf_Hex(va_list list_args)
 		t_num /= 16;
 	}
 
-	for (i = count - 1, i >= 0; i--)
+	for (i = count - 1; i >= 0; i--)
 	{
-		if (array[i] > 9)
-			hexArray[i] = hexArray[i] + 7;
+		if (hexArr[i] > 9)
+			hexArr[i] = hexArr[i] + 7;
 		_putchar(hexArr[i] + '0');
 	}
 

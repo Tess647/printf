@@ -8,7 +8,7 @@
 
 int printf_octal(va_list list_args)
 {
-	num = va_arg(list_args unsigned int);
+	unsigned int num = va_arg(list_args, unsigned int);
 	int *octalArr, count = 0, i;
 	unsigned int t_num = num;
 
