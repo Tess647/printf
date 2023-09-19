@@ -13,7 +13,7 @@ int printf_signedint(va_list list_args)
 	int temp = num, i;
 	int numofdigits = 1;
 	int charcount = 0;
-	char *str;
+	char *str, m = '-';
 
 	while (temp /= 10)
 		numofdigits++;
@@ -26,9 +26,9 @@ int printf_signedint(va_list list_args)
 	str[numofdigits] = '\0';
 	if (num < 0)
 	{
-		write(1, '-', 1);
+		write(1, &m, 1);
 		num = -num;
-		charcount++
+		charcount++;
 	}
 
 	for (i = numofdigits; i >= 0; i--)
