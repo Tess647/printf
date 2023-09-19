@@ -14,7 +14,8 @@ int _printf(const char *format, ...)
 		{"%%", printf_percent},
 		{"%d", printf_signedint},
 		{"%u", printf_unsignedint},
-		{"%b", printf_bin}
+		{"%b", printf_bin},
+		{"%o", printf_octal}
 	};
 
 	va_list list_args;
@@ -26,7 +27,7 @@ int _printf(const char *format, ...)
 Here:
 	while (format[i] != '\0')
 	{
-		j = 5;
+		j = 6;
 		while (j >= 0)
 		{
 			if (mb[j].spec[0] == format[i] && mb[j].spec[1] == format[i + 1])
