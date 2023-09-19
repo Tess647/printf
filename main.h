@@ -19,6 +19,8 @@ typedef struct form
 	int (*func)();
 } match_block;
 
+int printf_Hex(va_list list_args);
+int printf_hex(va_list list_args);
 int printf_octal(va_list list_args);
 int printf_bin(va_list list_args);
 int printf_percent(void);
