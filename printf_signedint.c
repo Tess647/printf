@@ -18,7 +18,7 @@ int printf_signedint(va_list list_args)
 	while (temp /= 10)
 		numofdigits++;
 
-	str = malloc(numofdigits + 2);
+	str = malloc(numofdigits + 1);
 
 	if (!str)
 		return (-1);
@@ -26,8 +26,9 @@ int printf_signedint(va_list list_args)
 	str[numofdigits + 1] = '\0';
 	if (num < 0)
 	{
-		str[0] = '-';
+		write(1, '-', 1);
 		num = -num;
+		charcount++
 	}
 
 	for (i = numofdigits; i >= 0; i--)
@@ -35,8 +36,8 @@ int printf_signedint(va_list list_args)
 		str[i] = '0' + (num % 10);
 		num /= 10;
 	}
-	charcount = numofdigits + 1;
-	write(1, str, numofdigits + 1);
+	charcount += numofdigits;
+	write(1, str, numofdigits);
 	free(str);
 	return (charcount);
 }
