@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 		{"%c", printf_char},
 		{"%%", printf_percent},
 		{"%d", printf_signedint},
-		{"%i", printf_unsignedint},
+		{"%u", printf_unsignedint},
 		{"%b", printf_bin}
 	};
 
