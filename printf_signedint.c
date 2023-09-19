@@ -23,7 +23,7 @@ int printf_signedint(va_list list_args)
 	if (!str)
 		return (-1);
 
-	str[numofdigits + 1] = '\0';
+	str[numofdigits] = '\0';
 	if (num < 0)
 	{
 		write(1, '-', 1);
