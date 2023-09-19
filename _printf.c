@@ -9,7 +9,7 @@
 int _printf(const char *format, ...)
 {
 	match_block mb[] = {
-		{"%s", printf_string}, {"%c", printf_char}, {"%%", printf_percent}
+		{"%s", printf_string}, {"%c", printf_char}, {"%%", printf_percent}, {"%b", printf_bin}
 	};
 
 	va_list list_args;
@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 Here:
 	while (format[i] != '\0')
 	{
-		j = 2;
+		j = 3;
 		while (j >= 0)
 		{
 			if (mb[j].spec[0] == format[i] && mb[j].spec[1] == format[i + 1])
