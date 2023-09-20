@@ -28,7 +28,7 @@ int printf_unsignedint(va_list list_args)
 		num /= 10;
 	}
 
-	for (i = numdigits - 1; i >= 0; i--)
+	for (i = numofdigits - 1; i >= 0; i--)
 	{
 		_putchar(str[i] + '0');
 	}
