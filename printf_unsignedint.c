@@ -9,14 +9,15 @@ int printf_unsignedint(va_list list_args)
 {
 	unsigned int num = va_arg(list_args, unsigned int);
 	int temp = num, i;
-	int numofdigits = 1;
-	int charcount = 0;
+	int numofdigits = 2;
+	int charcount = 0, last = temp % 10;
 	char *str;
 
-	if (num < 0)
+	if (last < 0)
 	{
 		num = -num;
 		temp = -temp;
+		last = -last;
 	}
 
 	while (temp /= 10)
