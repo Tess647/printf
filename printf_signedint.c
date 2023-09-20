@@ -19,7 +19,6 @@ int printf_signedint(va_list list_args)
 		numofdigits++;
 
 	str = malloc(numofdigits + 1);
-
 	if (!str)
 		return (-1);
 
