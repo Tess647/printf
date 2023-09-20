@@ -41,5 +41,5 @@ int printf_int(va_list list_args)
 	}
 	_putchar(last_digit + '0');
 
-	return (charCount);
+	return (charCount - 1);
 }
