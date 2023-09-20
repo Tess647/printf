@@ -18,9 +18,11 @@ int printf_int(va_list list_args)
 	{
 		_putchar('-');
 		num = -num;
+		p = -p;
 		last_digit = -last_digit;
 		charCount++;
 	}
+
 	if (num > 0)
 	{
 		while (num / 10 != 0)
