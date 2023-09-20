@@ -9,7 +9,7 @@
   */
 int printf_unsignedint(va_list list_args)
 {
-	unsigned int num = va_arg(list_args, unsigned int);
+	int num = va_arg(list_args, unsigned int);
 	int temp = num, i;
 	int numofdigits = 1;
 	int charcount = 0;
