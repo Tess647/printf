@@ -21,7 +21,7 @@ int printf_unsignedint(va_list list_args)
 		return (-1);
 
 	str[numofdigits] = '\0';
-	for (i = 0; i < numofdigits; i++)
+	for (i = numofdigits - 1; i >= 0; i--)
 	{
 		str[i] = '0' + (num % 10);
 		num /= 10;
