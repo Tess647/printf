@@ -13,7 +13,7 @@ int printf_unsignedint(va_list list_args)
 	int charcount = 0;
 	char *str;
 
-	f (num < 0)
+	if (num < 0)
 	{
 		num = -num;
 		temp = -temp;
