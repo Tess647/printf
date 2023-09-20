@@ -9,6 +9,17 @@
 #include <limits.h>
 
 /**
+ * struct buffer - represent the buffer
+ * @data: buffer data
+ * @position: current position in the buffer
+ *
+ */
+typedef struct buff_s {
+	char data[1024];
+	int position;
+} PrintBuffer;
+
+/**
   * struct form - match the converion specifiers for printf
   * @spec: type char pointer of the specifiers required
   * @func: type pointer to function for the conversion specifier
@@ -20,6 +31,12 @@ typedef struct form
 	int (*func)();
 } match_block;
 
+/* buffer function prototype */
+void initPrintBuffer(PrintBuffer *buffer);
+void writeCharToBuffer(PrintBuffer *buffer, char c);
+
+
+/* function prototypes */
 int printf_Hex(va_list list_args);
 int printf_hex(va_list list_args);
 int printf_octal(va_list list_args);

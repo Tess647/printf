@@ -8,7 +8,10 @@
   */
 int _printf(const char *format, ...)
 {
+	PrintBuffer buffer; /* Declare a buffer struct */
+
 	match_block mb[] = {
+		/*Array of conversion specifiers and their corresponding functions*/
 		{"%s", printf_string},
 		{"%c", printf_char},
 		{"%%", printf_percent},
@@ -22,30 +25,43 @@ int _printf(const char *format, ...)
 	};
 
 	va_list list_args;
-	int i = 0, j, totalChar = 0;
+	int i = 0, j;
+	int totalChar = 0; /*Initialize character count to 0*/
 
 	va_start(list_args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
+
+	initPrintBuffer(&buffer); /* Initialize the buffer */
+
+
 Here:
 	while (format[i] != '\0')
 	{
-		j = 9;
+		j = 9; /*Initialize 'j' to the last index of 'm' array*/
 		while (j >= 0)
 		{
 			if (mb[j].spec[0] == format[i] && mb[j].spec[1] == format[i + 1])
 			{
-				totalChar += mb[j].func(list_args);
+				/* Format the output and write it to the buffer */
+				int formatted_len = mb[j].func(list_args, &buffer);
+				totalChar += formatted_len;/*Update character count*/
 				i = i + 2;
 				goto Here;
 			}
 			j--;
 		}
-		_putchar(format[i]);
-		totalChar++;
+
+		/* Append regular characters to the buffer */
+		writeCharToBuffer(&buffer, format[i]);
+		totalChar++; /* Update character count for regular character */
 		i++;
+
+		/* Flush any remaining data in the buffer */
+		write(1, buffer.data, buffer.position);
+		totalChar += buffer.position; /* Update character count */
 	}
 
 	va_end(list_args);
-	return (totalChar);
+	return (totalChar); /* Return the total character count */
 }
