@@ -7,10 +7,12 @@
   */
 int printf_unsignedint(va_list list_args)
 {
-	unsigned int num = va_arg(list_args, unsigned int);
-	int temp = num, i;
-	int numofdigits = 2;
-	int charcount = 0, last = temp % 10;
+	long int num = va_arg(list_args, unsigned int);
+	long int temp = num, i;
+	long int numofdigits = 1;
+	long int last = temp % 10;
+	int charcount = 0;
+
 	char *str;
 
 	if (last < 0)
