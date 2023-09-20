@@ -10,6 +10,7 @@ int _printf(const char *format, ...)
 {
 	match_block mb[] = {
 		{"%s", printf_string},
+		{"%S", printf_String},
 		{"%c", printf_char},
 		{"%%", printf_percent},
 		{"%d", printf_signedint},
@@ -18,7 +19,8 @@ int _printf(const char *format, ...)
 		{"%b", printf_bin},
 		{"%o", printf_octal},
 		{"%x", printf_hex},
-		{"%X", printf_Hex}
+		{"%X", printf_Hex},
+
 	};
 
 	va_list list_args;
