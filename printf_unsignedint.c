@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
-#include <unistd.h>
 
 /**
   *printf_unsignedint - print an unsigned integer
@@ -9,7 +7,7 @@
   */
 int printf_unsignedint(va_list list_args)
 {
-	int num = va_arg(list_args, unsigned int);
+	unsigned int num = va_arg(list_args, unsigned int);
 	int temp = num, i;
 	int numofdigits = 1;
 	int charcount = 0;
@@ -23,7 +21,7 @@ int printf_unsignedint(va_list list_args)
 		return (-1);
 
 	str[numofdigits] = '\0';
-	for (i = numofdigits - 1; i >= 0; i--)
+	for (i = 0; i < numofdigits; i++)
 	{
 		str[i] = '0' + (num % 10);
 		num /= 10;
