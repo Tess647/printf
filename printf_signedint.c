@@ -25,8 +25,8 @@ int printf_signedint(va_list list_args)
 	{
 		while (num / 10 != 0)
 		{
-			e *= 10;
-			num /= 10;
+			e = e * 10;
+			num = num * 10;
 		}
 		num = p;
 
