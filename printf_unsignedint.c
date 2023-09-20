@@ -21,14 +21,19 @@ int printf_unsignedint(va_list list_args)
 		return (-1);
 
 	str[numofdigits] = '\0';
-	for (i = numofdigits - 1; i >= 0; i--)
+
+	for (i = 0; i < numofdigits; i++)
 	{
-		str[i] = '0' + (num % 10);
+		str[i] = num % 10;
 		num /= 10;
 	}
 
+	for (i = numdigits - 1; i >= 0; i--)
+	{
+		_putchar(str[i] + '0');
+	}
+
 	charcount = numofdigits;
-	write(1, str, numofdigits);
 	free(str);
 	return (charcount);
 }
