@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-  * printf_signednt - prints integer
+  * printf_signedint - prints integer
   * @list_args: input argument
   * Return: number of characters printed
   */
