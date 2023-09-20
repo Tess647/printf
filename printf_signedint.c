@@ -9,7 +9,7 @@
   */
 int printf_signedint(va_list list_args)
 {
-	int n = va_arg(args, int);
+	int n = va_arg(list_args, int);
 	int num, last = n % 10, digit;
 	int  i = 1;
 	int exp = 1;
