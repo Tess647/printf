@@ -6,6 +6,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <unistd.h>
+#include <limits.h>
 
 /**
   * struct form - match the converion specifiers for printf
@@ -26,6 +27,7 @@ int printf_bin(va_list list_args);
 int printf_percent(void);
 int printf_char(va_list list_args);
 int printf_string(va_list list_args);
+int printf_int(va_list list_args);
 int printf_signedint(va_list list_args);
 int printf_unsignedint(va_list list_args);
 int _putchar(char c);
