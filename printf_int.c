@@ -2,7 +2,7 @@
 
 /**
   * printf_int - prints integer
-  * @list_arg: input argument
+  * @list_args: input argument
   * Return: number of characters printed
   */
 int printf_int(va_list list_args)
