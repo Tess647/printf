@@ -11,14 +11,14 @@ int printf_signedint(va_list list_args)
 {
 	signed int num = va_arg(list_args, signed int);
 	int temp = num, i;
-	int numofdigits = 1;
+	int numofdigits = 0;
 	int charcount = 0;
 	char *str;
 
 	while (temp /= 10)
 		numofdigits++;
 
-	str = malloc(numofdigits + 1);
+	str = malloc(20);
 	if (!str)
 		return (-1);
 
@@ -35,7 +35,6 @@ int printf_signedint(va_list list_args)
 		str[i] = '0' + (num % 10);
 		num /= 10;
 	}
-	str[1] = '0' + num;
 
 	charcount += numofdigits;
 	write(1, str, numofdigits + 1);
