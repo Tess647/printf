@@ -35,6 +35,8 @@ int printf_signedint(va_list list_args)
 		str[i] = '0' + (num % 10);
 		num /= 10;
 	}
+	str[1] = '0' + num;
+
 	charcount += numofdigits;
 	write(1, str, numofdigits);
 	free(str);
