@@ -9,35 +9,40 @@
   */
 int printf_signedint(va_list list_args)
 {
-	signed int num = va_arg(list_args, signed int);
-	int temp = num, i;
-	int numofdigits = 0;
-	int charcount = 0;
-	char *str;
+	int n = va_arg(args, int);
+	int num, last = n % 10, digit;
+	int  i = 1;
+	int exp = 1;
 
-	while (temp /= 10)
-		numofdigits++;
+	n = n / 10;
+	num = n;
 
-	str = malloc(20);
-	if (!str)
-		return (-1);
-
-	str[numofdigits] = '\0';
-	if (num < 0)
+	if (last < 0)
 	{
 		_putchar('-');
 		num = -num;
-		charcount++;
+		n = -n;
+		last = -last;
+		i++;
 	}
-
-	for (i = numofdigits; i >= 0; i--)
+	if (num > 0)
 	{
-		str[i] = '0' + (num % 10);
-		num /= 10;
+		while (num / 10 != 0)
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (exp > 0)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+			num = num - (digit * exp);
+			exp = exp / 10;
+			i++;
+		}
 	}
+	_putchar(last + '0');
 
-	charcount += numofdigits;
-	write(1, str, numofdigits + 1);
-	free(str);
-	return (charcount);
+	return (i);
 }
