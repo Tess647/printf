@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	match_block mb[] = {
 		/*Array of conversion specifiers and their corresponding functions*/
 		{"%s", printf_string},
-		/*{"%S", printf_String},*/
+		{"%S", printf_exclusive_string},
 		{"%c", printf_char},
 		{"%%", printf_percent},
 		{"%d", printf_signedint},
