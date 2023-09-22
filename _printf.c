@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	match_block mb[] = {
 		/*Array of conversion specifiers and their corresponding functions*/
 		{"%s", printf_string},
-		{"%S", printf_String},
+		/*{"%S", printf_String},*/
 		{"%c", printf_char},
 		{"%%", printf_percent},
 		{"%d", printf_signedint},
@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 Here:
 	while (format[i] != '\0')
 	{
-		j = 10; /*Initialize 'j' to the last index of 'm' array*/
+		j = 9; /*Initialize 'j' to the last index of 'm' array*/
 		while (j >= 0)
 		{
 			if (mb[j].spec[0] == format[i] && mb[j].spec[1] == format[i + 1])
