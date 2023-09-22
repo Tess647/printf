@@ -14,7 +14,8 @@
  * @position: current position in the buffer
  *
  */
-typedef struct buff_s {
+typedef struct buff_s 
+{
 	char data[1024];
 	int position;
 } PrintBuffer;
@@ -37,6 +38,10 @@ void writeCharToBuffer(PrintBuffer *buffer, char c);
 
 
 /* function prototypes */
+int printf_rot13(va_list list_args);
+int printf_revstring(va_list list_args);
+int printf_pointer(va_list list_args);
+int printf_hex_ax(unsigned long int num);
 int printf_Hex(va_list list_args);
 int printf_hex(va_list list_args);
 int printf_octal(va_list list_args);
@@ -44,7 +49,7 @@ int printf_bin(va_list list_args);
 int printf_percent(void);
 int printf_char(va_list list_args);
 int printf_string(va_list list_args);
-int printf_String(va_list list_args);
+/*int printf_String(va_list list_args);*/
 int printf_int(va_list list_args);
 int printf_signedint(va_list list_args);
 int printf_unsignedint(va_list list_args);
