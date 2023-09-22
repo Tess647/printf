@@ -38,6 +38,7 @@ void writeCharToBuffer(PrintBuffer *buffer, char c);
 
 
 /* function prototypes */
+int printf_rot13(va_list list_args);
 int printf_revstring(va_list list_args);
 int printf_pointer(va_list list_args);
 int printf_hex_ax(unsigned long int num);
