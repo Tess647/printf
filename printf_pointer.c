@@ -19,7 +19,7 @@ int printf_pointer(va_list list_args)
 		{
 			_putchar(str[i]);
 		}
-		return (1);
+		return (i);
 	}
 
 	a = (unsigned long int)ptr;
