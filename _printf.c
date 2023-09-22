@@ -8,8 +8,6 @@
   */
 int _printf(const char *format, ...)
 {
-	PrintBuffer buffer; /* Declare a buffer struct */
-
 	match_block mb[] = {
 		/*Array of conversion specifiers and their corresponding functions*/
 		{"%s", printf_string},
@@ -34,9 +32,6 @@ int _printf(const char *format, ...)
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
-	initPrintBuffer(&buffer); /* Initialize the buffer */
-
-
 Here:
 	while (format[i] != '\0')
 	{
@@ -46,22 +41,16 @@ Here:
 			if (mb[j].spec[0] == format[i] && mb[j].spec[1] == format[i + 1])
 			{
 				/* Format the output and write it to the buffer */
-				int formatted_len = mb[j].func(list_args, &buffer);
-				totalChar += formatted_len;/*Update character count*/
+				totalChar += mb[j].func(list_args);
 				i = i + 2;
 				goto Here;
 			}
 			j--;
 		}
 
-		/* Append regular characters to the buffer */
-		writeCharToBuffer(&buffer, format[i]);
+		_putchar(format[i]);
 		totalChar++; /* Update character count for regular character */
 		i++;
-
-		/* Flush any remaining data in the buffer */
-		write(1, buffer.data, buffer.position);
-		totalChar += buffer.position; /* Update character count */
 	}
 
 	va_end(list_args);
