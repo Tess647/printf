@@ -20,7 +20,7 @@ int printf_rot13(va_list list_args)
 		l = 0;
 		for (j = 0; first[j] && !l; j++)
 		{
-			if (str[i] == first j])
+			if (str[i] == first [j])
 			{
 				_putchar(second[j]);
 				count++;
