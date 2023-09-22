@@ -21,6 +21,7 @@ int _printf(const char *format, ...)
 		{"%o", printf_octal},
 		{"%x", printf_hex},
 		{"%X", printf_Hex},
+		{"%p", printf_pointer},
 
 	};
 
@@ -35,7 +36,7 @@ int _printf(const char *format, ...)
 Here:
 	while (format[i] != '\0')
 	{
-		j = 9; /*Initialize 'j' to the last index of 'm' array*/
+		j = 10; /*Initialize 'j' to the last index of 'm' array*/
 		while (j >= 0)
 		{
 			if (mb[j].spec[0] == format[i] && mb[j].spec[1] == format[i + 1])

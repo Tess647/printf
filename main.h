@@ -14,7 +14,8 @@
  * @position: current position in the buffer
  *
  */
-typedef struct buff_s {
+typedef struct buff_s 
+{
 	char data[1024];
 	int position;
 } PrintBuffer;
@@ -37,6 +38,9 @@ void writeCharToBuffer(PrintBuffer *buffer, char c);
 
 
 /* function prototypes */
+
+int printf_pointer(va_list list_val);
+int printf_hex_ax(unsigned long int num);
 int printf_Hex(va_list list_args);
 int printf_hex(va_list list_args);
 int printf_octal(va_list list_args);
